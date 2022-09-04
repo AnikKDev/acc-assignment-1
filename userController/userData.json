@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "gender": "female",
+        "name": "John Dalton",
+        "contact": true,
+        "address": "$3,110.76",
+        "photoUrl": "http://placehold.it/32x32"
+    },
+    {
+        "id": "2",
+        "gender": "female",
+        "name": "John Dalton",
+        "contact": false,
+        "address": "$3,223.34",
+        "photoUrl": "http://placehold.it/32x32"
+    },
+    {
+        "id": "3",
+        "gender": "male",
+        "name": "John Dalton",
+        "contact": true,
+        "address": "$1,575.93",
+        "photoUrl": "http://placehold.it/32x32"
+    },
+    {
+        "id": "4",
+        "gender": "male",
+        "name": "John Dalton",
+        "contact": false,
+        "address": "$3,100.35",
+        "photoUrl": "http://placehold.it/32x32"
+    },
+    {
+        "id": "5",
+        "gender": "male",
+        "name": "John Dalton",
+        "contact": true,
+        "address": "$1,598.19",
+        "photoUrl": "http://placehold.it/32x32"
+    }
+]
