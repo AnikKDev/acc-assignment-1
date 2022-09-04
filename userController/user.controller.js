@@ -104,3 +104,37 @@ module.exports.deleteAUser = (req, res) => {
     })
 
 }
+
+// bulk update
+module.exports.bulkUpdate = (req, res) => {
+    const allUser = fs.readFileSync(__dirname + "/userData.json");
+    const allUserObj = JSON.parse(allUser);
+    console.log(allUserObj)
+    // console.log(req.body)
+    const mapBody = req.body.map(item => {
+        // console.log(allUserObj)
+        const filteredUsers = allUserObj.filter(user => user.id == item.id)
+        const mapFilteredUsers = filteredUsers.map(fuser => {
+            // console.log(fuser)
+            if (item.name) {
+                fuser.name = (item.name);
+            } else {
+                item.name = item.name
+            }
+            // console.log(filteredUsers)
+
+        })
+
+
+    })
+    const updatedUserObj = JSON.stringify(allUserObj)
+    fs.writeFile(__dirname + "/userData.json", updatedUserObj, (err) => {
+        if (err) {
+            console.log("data couldn't add")
+        } else {
+            res.send(updatedUserObj)
+        }
+    })
+
+
+}

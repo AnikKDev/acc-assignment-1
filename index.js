@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use('/user', userRoute)
 
-app.get('/user', userRoute)
+// app.get('/user', userRoute)
 
 
 
