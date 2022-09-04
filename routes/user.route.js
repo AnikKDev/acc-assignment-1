@@ -5,6 +5,6 @@ const router = express.Router()
 router.route('/all').get(getAllUser).post(saveAUser)
 // get random tool
 router.route("/random").get(getRandomUser);
-router.route('/update/:id').get(updateAUser).patch(updateAUser)
+router.route('/update/:id').patch(updateAUser)
 
 module.exports = router;
