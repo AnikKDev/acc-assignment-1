@@ -1,8 +1,8 @@
 const express = require("express");
-const { getAllUser, getRandomUser } = require("../userController/user.controller");
+const { getAllUser, getRandomUser, saveAUser } = require("../userController/user.controller");
 const router = express.Router()
 
-router.route('/all').get(getAllUser)
+router.route('/all').get(getAllUser).post(saveAUser)
 // get random tool
 router.route("/random").get(getRandomUser);
 
