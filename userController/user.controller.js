@@ -32,12 +32,6 @@ module.exports.getRandomUser = (req, res) => {
 module.exports.saveAUser = (req, res) => {
     const allUser = fs.readFileSync(__dirname + "/userData.json");
 
-    const dummyData = {
-        "id": 1,
-        "name": "John",
-        "city": "London",
-        "country": "England"
-    }
     const allUserObj = JSON.parse(allUser);
     allUserObj.push(req.body);
     const newData = JSON.stringify(allUserObj);
@@ -48,4 +42,38 @@ module.exports.saveAUser = (req, res) => {
             res.send(allUser)
         }
     })
+}
+
+// update a user
+module.exports.updateAUser = (req, res) => {
+    const allUser = fs.readFileSync(__dirname + "/userData.json");
+    const id = req.params.id;
+    const allUserObj = JSON.parse(allUser);
+    const filterUserWithID = allUserObj.find(user => user.id == id);
+    if (req.body.name) {
+        filterUserWithID.name = (req.body.name);
+    } else {
+        filterUserWithID.name = filterUserWithID.name
+    }
+    if (req.body.contact) {
+        filterUserWithID.contact = (req.body.contact);
+    } else {
+        filterUserWithID.contact = filterUserWithID.contact
+    }
+    if (req.body.gender) {
+        filterUserWithID.gender = (req.body.gender);
+    } else {
+        filterUserWithID.gender = filterUserWithID.gender
+    }
+    if (req.body.address) {
+        filterUserWithID.address = (req.body.address);
+    } else {
+        filterUserWithID.address = filterUserWithID.address
+    }
+    if (req.body.photoUrl) {
+        filterUserWithID.photoUrl = (req.body.photoUrl);
+    } else {
+        filterUserWithID.photoUrl = filterUserWithID.photoUrl
+    }
+    res.send(filterUserWithID);
 }
