@@ -7,7 +7,7 @@ module.exports.getAllUser = (req, res) => {
             res.send('data not found')
             res.end()
         } else {
-            res.send(data);
+            res.write(data);
             res.end()
         }
     })
