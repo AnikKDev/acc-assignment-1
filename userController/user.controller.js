@@ -87,3 +87,20 @@ module.exports.updateAUser = (req, res) => {
 
     // res.send(filterUserWithID);
 }
+// delete a user
+module.exports.deleteAUser = (req, res) => {
+    const allUser = fs.readFileSync(__dirname + "/userData.json");
+    const id = req.params.id;
+    // console.log(id);
+    const allUserObj = JSON.parse(allUser);
+    const filterUserWithID = allUserObj.filter(user => user.id != id);
+    const filterUserWithIDStringify = JSON.stringify(filterUserWithID);
+    fs.writeFile(__dirname + "/userData.json", filterUserWithIDStringify, (err) => {
+        if (err) {
+            console.log("data couldn't delete")
+        } else {
+            res.send(filterUserWithIDStringify)
+        }
+    })
+
+}
